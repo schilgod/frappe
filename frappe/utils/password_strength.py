@@ -161,7 +161,7 @@ def get_dictionary_match_feedback(match, is_sole_match):
 
 	# If the match is a common password
 	if match.get("dictionary_name") == "passwords":
-		if is_sole_match and not match.get("l33t_entropy"):
+		if is_sole_match and not match.get("l33t"):
 			if match.get("rank") <= 10:
 				warning = _("This is a top-10 common password.")
 			elif match.get("rank") <= 100:
@@ -191,7 +191,7 @@ def get_dictionary_match_feedback(match, is_sole_match):
 		suggestions.append(_("All-uppercase is almost as easy to guess as all-lowercase."))
 
 	# Match contains l33t speak substitutions
-	if match.get("l33t_entropy"):
+	if match.get("l33t"):
 		suggestions.append(_("Predictable substitutions like '@' instead of 'a' don't help very much."))
 
 	return {
